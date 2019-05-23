@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
 import {CursosService} from './cursos/cursos.service';
+import { RotaNotFoundComponent } from './rota-not-found/rota-not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {CursosService} from './cursos/cursos.service';
     HomeComponent,
     LoginComponent,
     CursosComponent,
-    CursoDetalheComponent
+    CursoDetalheComponent,
+    RotaNotFoundComponent
   ],
   imports: [
     BrowserModule,

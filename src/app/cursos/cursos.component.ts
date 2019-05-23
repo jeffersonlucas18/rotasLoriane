@@ -1,3 +1,4 @@
+import { getTestBed } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
 import {CursosService} from './cursos.service';
 
@@ -8,9 +9,13 @@ import {CursosService} from './cursos.service';
 })
 export class CursosComponent implements OnInit {
 
+    cursos: any []
   constructor(private cursosService: CursosService) { }
 
   ngOnInit() {
+    this.obterCurso()
   }
-
+  obterCurso(){
+    this.cursos = this.cursosService.getCursos();
+  }
 }

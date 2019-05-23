@@ -1,3 +1,4 @@
+import { RotaNotFoundComponent } from './rota-not-found/rota-not-found.component';
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
@@ -9,7 +10,8 @@ import {CursoDetalheComponent} from './curso-detalhe/curso-detalhe.component';
   {path: '', component: HomeComponent},
   {path: 'cursos', component: CursosComponent},
   {path: 'curso/:id', component: CursoDetalheComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'naoencontrado', component: RotaNotFoundComponent}
   ];
 
  export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
