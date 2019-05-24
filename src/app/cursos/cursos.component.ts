@@ -1,7 +1,7 @@
-import { getTestBed } from '@angular/core/testing';
+
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CursosService} from './cursos.service';
-import {ActivatedRoute, Route, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 
 @Component({
