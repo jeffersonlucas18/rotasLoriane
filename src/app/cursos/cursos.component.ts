@@ -1,21 +1,42 @@
 import { getTestBed } from '@angular/core/testing';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CursosService} from './cursos.service';
+import {ActivatedRoute, Route, Router} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-cursos',
   templateUrl: './cursos.component.html',
   styleUrls: ['./cursos.component.css']
 })
-export class CursosComponent implements OnInit {
+export class CursosComponent implements OnInit, OnDestroy {
 
-    cursos: any []
-  constructor(private cursosService: CursosService) { }
+    cursos: any [];
+    pagina: number;
+    inscricao: Subscription;
+
+
+  constructor(private cursosService: CursosService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
-    this.obterCurso()
+    this.obterCurso();
+    this.obterPagina();
   }
-  obterCurso(){
+  obterCurso() {
     this.cursos = this.cursosService.getCursos();
+  }
+  obterPagina() {
+      this.inscricao = this.route.queryParams.subscribe((querparams: any) => {
+      this.pagina = querparams['pagina'];
+    });
+  }
+  ngOnDestroy() {
+  this.inscricao.unsubscribe();
+  }
+  proximaPagina() {
+  // this.pagina ++;
+  this.router.navigate(['/cursos'], {queryParams: {'pagina': ++this.pagina}});
   }
 }
