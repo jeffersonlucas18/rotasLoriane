@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
-
+import {FormsModule} from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -12,6 +12,8 @@ import {RotaNotFoundComponent} from '../cursos/rota-not-found/rota-not-found.com
 
 import {CursosService} from '../cursos/cursos.service';
 import {CursosRouting} from '../cursos/cursos.routing';
+import {AuthService} from '../login/auth.service';
+
 
 
 
@@ -22,9 +24,10 @@ import {CursosRouting} from '../cursos/cursos.routing';
     CommonModule,
     BrowserModule,
     HttpClientModule,
-    CursosRouting
+    CursosRouting,
+    FormsModule
   ],
   exports: [LoginComponent, CursosComponent, CursoDetalheComponent, HomeComponent, RotaNotFoundComponent],
-  providers: [CursosService]
+  providers: [CursosService, AuthService]
 })
 export class SharedModule { }

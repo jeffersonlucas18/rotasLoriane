@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import {SharedModule} from './shared/shared.module';
 import {AlunosModule} from './alunos/alunos.module';
+import {AuthService} from './login/auth.service';
 
 
 @NgModule({
